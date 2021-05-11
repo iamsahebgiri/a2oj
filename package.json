@@ -13,7 +13,7 @@
     "codeforces"
   ],
   "author": "Saheb Giri",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@headlessui/react": "^1.2.0",
     "next": "^10.2.0",
