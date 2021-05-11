@@ -43,6 +43,11 @@ npm run build
 
 NextJS, ReactJS, Tailwind CSS, SWR
 
+## Roadmaps
+  - Add favicon
+  - Add github link
+  - Add title to page
+  - Add loading skeleton
 
 
 ## Acknowledgements
