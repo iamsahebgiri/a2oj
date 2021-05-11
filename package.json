@@ -1,0 +1,32 @@
+{
+  "name": "a2oj",
+  "version": "1.0.0",
+  "description": "Dynamic A2OJ Ladders",
+  "scripts": {
+    "dev": "TAILWIND_MODE=watch NODE_ENV=development next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export"
+  },
+  "keywords": [
+    "a2oj",
+    "codeforces"
+  ],
+  "author": "Saheb Giri",
+  "license": "ISC",
+  "dependencies": {
+    "@headlessui/react": "^1.2.0",
+    "next": "^10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.5.2",
+    "react-icons": "^4.2.0",
+    "swr": "^0.5.6",
+    "use-dark-mode": "^2.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.14",
+    "tailwindcss": "^2.1.2"
+  }
+}
