@@ -48,6 +48,8 @@ NextJS, ReactJS, Tailwind CSS, SWR
   - Add github link
   - Add title to page
   - Add loading skeleton
+  - Fix Division name
+  - Add analytics
 
 
 ## Acknowledgements
