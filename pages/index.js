@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import useLocalStorage from "../hooks/useLocalStorage";
 import { HiXCircle } from "react-icons/hi";
-import DarkModeFloatingButton from "../components/DarkModeFloatingButton";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import Container from "../components/Container";
 import Header from "../components/Header";
 import InputField from "../components/InputField";
 import SelectField from "../components/SelectField";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const divisions = [
   { name: "Division 2 A", code: "div_2a" },
@@ -72,7 +72,7 @@ function IndexPage() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 min-h-screen py-8">
+    <Container>
       <Header />
       <main className="py-8">
         <div className="bg-white dark:bg-gray-700 shadow h-auto px-6 py-8 container mx-auto sm:w-8/12 lg:w-6/12 rounded-none sm:rounded-md">
@@ -126,9 +126,8 @@ function IndexPage() {
             </div>
           </form>
         </div>
-        <DarkModeFloatingButton />
       </main>
-    </div>
+    </Container>
   );
 }
 

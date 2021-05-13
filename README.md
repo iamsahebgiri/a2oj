@@ -45,10 +45,10 @@ NextJS, ReactJS, Tailwind CSS, SWR
 
 ## Roadmaps
   - Add github link
-  - Add title to page
   - Add loading skeleton
   - Fix Division name
   - Add analytics
+  - Apply inter on every device
 
 
 ## Acknowledgements

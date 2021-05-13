@@ -1,10 +1,9 @@
+import { useRouter } from "next/router";
+import Container from "../../components/Container";
 import Heading from "../../components/Heading";
+import ladders from "../../data/ladders.json";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import useUser from "../../hooks/useUser";
-import ladders from "../../data/ladders.json";
-import { useRouter } from "next/router";
-import { useRef, useState } from "react";
-import DarkModeFloatingButton from "../../components/DarkModeFloatingButton";
 
 function Table({ problemSet }) {
   return (
@@ -13,15 +12,17 @@ function Table({ problemSet }) {
         <thead className="bg-gray-100 dark:bg-gray-600">
           <tr className="text-gray-600 dark:text-gray-200 text-left font-semibold text-sm uppercase">
             <th className="py-4 px-5">Serial</th>
-            <th className="py-4 px-5">Problem Statement</th>
+            <th className="py-4 px-5">Problem</th>
             <th className="py-4 px-5">Status</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
-          {problemSet.map((problem, i) => {
+          {problemSet.map((problem) => {
             return (
               <tr key={problem[0]}>
-                <td className="px-6 py-3 font-medium text-gray-900 dark:text-gray-200">{problem[0]}</td>
+                <td className="px-6 py-3 font-medium text-gray-900 dark:text-gray-200">
+                  {problem[0]}
+                </td>
                 <td className="py-3 px-2 text-gray-900 dark:text-gray-200">
                   <a
                     href={`https://codeforces.com/problemset/problem/${problem[2]}/${problem[3]}`}
@@ -88,25 +89,26 @@ const LaddersPage = () => {
   }
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-800 min-h-screen py-8">
-      <div className="pb-6 mx-auto">
-        <Heading size="sm">Division 2 B</Heading>
-        <span className="block text-center text-sm font-medium text-gray-700 dark:text-gray-200">
-          {handle}
-        </span>
-        <span className="block mt-2 text-center font-medium text-gray-700 dark:text-gray-200">
-          {solved} out of 100
-        </span>
-        <div className="mt-6 h-2 bg-gray-200 dark:bg-gray-600 container mx-auto sm:w-8/12 lg:w-6/12 rounded-none sm:rounded-full">
-          <div
-            style={{ width: `${solved}%` }}
-            className="h-2 bg-green-500 rounded-none sm:rounded-full"
-          ></div>
+    <Container>
+      <section>
+        <div className="pb-6 mx-auto">
+          <Heading size="sm">Division 2 B</Heading>
+          <span className="block text-center text-sm font-medium text-gray-700 dark:text-gray-200">
+            {handle}
+          </span>
+          <span className="block mt-2 text-center font-medium text-gray-700 dark:text-gray-200">
+            {solved} out of 100
+          </span>
+          <div className="mt-6 h-2 bg-gray-200 dark:bg-gray-600 container mx-auto sm:w-8/12 lg:w-6/12 rounded-none sm:rounded-full">
+            <div
+              style={{ width: `${solved}%` }}
+              className="h-2 bg-green-500 rounded-none sm:rounded-full"
+            ></div>
+          </div>
         </div>
-      </div>
-      <Table problemSet={localProblemSet} />
-      <DarkModeFloatingButton />
-    </section>
+        <Table problemSet={localProblemSet} />
+      </section>
+    </Container>
   );
 };
 
