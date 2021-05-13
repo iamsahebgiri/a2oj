@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Container from "../../components/Container";
 import Heading from "../../components/Heading";
+import LoadingSkeleton from "../../components/LoadingSkeleton";
 import ladders from "../../data/ladders.json";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import useUser from "../../hooks/useUser";
@@ -61,7 +62,7 @@ const LaddersPage = () => {
   let localProblemSet = [];
   let solved = 0;
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingSkeleton />;
 
   if (!isLoading) {
     const { laddersId } = router.query;
@@ -91,7 +92,7 @@ const LaddersPage = () => {
   return (
     <Container>
       <section>
-        <div className="pb-6 mx-auto">
+        <div className="py-8 mx-auto">
           <Heading size="sm">Division 2 B</Heading>
           <span className="block text-center text-sm font-medium text-gray-700 dark:text-gray-200">
             {handle}
