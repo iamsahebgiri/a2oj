@@ -44,7 +44,7 @@ npm run build
 NextJS, ReactJS, Tailwind CSS, SWR
 
 ## Roadmaps
-  - Add analytics
+  - Nothing for now
 
 
 ## Acknowledgements
