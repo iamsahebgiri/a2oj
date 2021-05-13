@@ -45,7 +45,6 @@ NextJS, ReactJS, Tailwind CSS, SWR
 
 ## Roadmaps
   - Add analytics
-  - Apply inter on every device
 
 
 ## Acknowledgements
