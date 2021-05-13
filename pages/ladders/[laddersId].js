@@ -57,7 +57,9 @@ function Table({ problemSet }) {
 const LaddersPage = () => {
   const router = useRouter();
   const [handle] = useLocalStorage("handle");
+  const [laddersName] = useLocalStorage("laddersName");
   const { user: submissions, isLoading } = useUser(handle);
+  const { laddersId } = router.query;
 
   let localProblemSet = [];
   let solved = 0;
@@ -65,7 +67,6 @@ const LaddersPage = () => {
   if (isLoading) return <LoadingSkeleton />;
 
   if (!isLoading) {
-    const { laddersId } = router.query;
     const allProblems = ladders[laddersId];
     for (let i = 0; i < allProblems.length; i++) {
       const problem = allProblems[i];
@@ -93,7 +94,7 @@ const LaddersPage = () => {
     <Container>
       <section>
         <div className="py-8 mx-auto">
-          <Heading size="sm">Division 2 B</Heading>
+          <Heading size="sm">{laddersName}</Heading>
           <span className="block text-center text-sm font-medium text-gray-700 dark:text-gray-200">
             {handle}
           </span>

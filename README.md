@@ -44,7 +44,6 @@ npm run build
 NextJS, ReactJS, Tailwind CSS, SWR
 
 ## Roadmaps
-  - Fix Division name
   - Add analytics
   - Apply inter on every device
 

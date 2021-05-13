@@ -4,7 +4,7 @@ const Heading = (props) => {
   switch (props.size) {
     case "sm":
       styles =
-        "font-display text-center text-gray-900 dark:text-gray-50 text-2xl leading-9 font-semibold sm:text-3xl sm:leading-10";
+        "font-display text-center text-gray-900 dark:text-gray-50 text-2xl px-4 leading-9 font-semibold sm:text-3xl sm:leading-10";
       break;
     default:
       styles =

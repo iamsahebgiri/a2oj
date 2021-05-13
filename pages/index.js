@@ -36,6 +36,7 @@ const laddersType = [{ name: "Division" }, { name: "Rating" }];
 
 function IndexPage() {
   const [handle, setHandle] = useLocalStorage("handle", "");
+  const [_, setLaddersName] = useLocalStorage("laddersName", "");
   const [selectedLadder, setSelectedLadder] = useState(laddersType[0]);
   const [selectedDivision, setSelectedDivision] = useState(divisions[0]);
   const [selectedRating, setSelectedRating] = useState(ratings[0]);
@@ -48,10 +49,15 @@ function IndexPage() {
   const onSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    let ladder =
-      selectedLadder.name === "Division"
-        ? selectedDivision.code
-        : selectedRating.code;
+
+    let ladder;
+    if (selectedLadder.name === "Division") {
+      ladder = selectedDivision.code;
+      setLaddersName(selectedDivision.name);
+    } else {
+      ladder = selectedRating.code;
+      setLaddersName(selectedRating.name);
+    }
 
     fetch(`https://codeforces.com/api/user.info?handles=${handle}`)
       .then((res) => res.json())
