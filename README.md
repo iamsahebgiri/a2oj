@@ -44,8 +44,6 @@ npm run build
 NextJS, ReactJS, Tailwind CSS, SWR
 
 ## Roadmaps
-  - Add github link
-  - Add loading skeleton
   - Fix Division name
   - Add analytics
   - Apply inter on every device

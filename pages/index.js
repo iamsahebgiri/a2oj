@@ -1,4 +1,5 @@
 import { HiXCircle } from "react-icons/hi";
+import { AiFillGithub } from "react-icons/ai";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Container from "../components/Container";
@@ -153,6 +154,17 @@ function IndexPage() {
           </form>
         </div>
       </main>
+      <div className="text-center font-medium text-gray-400 flex w-full justify-center">
+        <a
+          href="https://github.com/iamsahebgiri/a2oj"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="items-center flex hover:text-purple-500"
+        >
+          <AiFillGithub className="mr-2 h-5 w-5" />
+          iamsahebgiri
+        </a>
+      </div>
     </Container>
   );
 }
