@@ -8,7 +8,7 @@ const Container = (props) => {
   const meta = {
     title: "A2 Online Judge",
     description:
-      "Get started with competitive programming with cureated problems from A2OJ.",
+      "Get started with competitive programming with curated problems from A2OJ.",
     image: "https://the-a2oj.vercel.app/banner.png",
     type: "website",
     ...customMeta,
