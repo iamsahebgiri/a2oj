@@ -1,15 +1,14 @@
-import { useRouter } from "next/router";
-import Container from "../../components/Container";
-import Heading from "../../components/Heading";
-import LoadingSkeleton from "../../components/LoadingSkeleton";
-import ladders from "../../data/ladders.json";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import useUser from "../../hooks/useUser";
+import { useRouter } from 'next/router';
+import Container from '../../components/Container';
+import LoadingSkeleton from '../../components/LoadingSkeleton';
+import ladders from '../../data/ladders.json';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import useUser from '../../hooks/useUser';
 
 function Table({ problemSet }) {
   return (
     <div>
-      <table className="mx-auto max-w-2xl w-full rounded-none sm:rounded-md bg-white dark:bg-gray-700 shadow divide-y divide-gray-200 dark:divide-gray-600 overflow-hidden">
+      <table className="mx-auto max-w-2xl w-full rounded-none sm:rounded-md bg-white dark:bg-gray-700 shadow-sm divide-y divide-gray-200 dark:divide-gray-600 overflow-hidden table-auto">
         <thead className="bg-gray-100 dark:bg-gray-600">
           <tr className="text-gray-600 dark:text-gray-200 text-left font-semibold text-sm uppercase">
             <th className="py-4 px-5">Serial</th>
@@ -17,31 +16,31 @@ function Table({ problemSet }) {
             <th className="py-4 px-5">Status</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-600">
+        <tbody className="divide-y divide-gray-100 dark:divide-gray-600">
           {problemSet.map((problem) => {
             return (
               <tr key={problem[0]}>
-                <td className="px-6 py-3 font-medium text-gray-900 dark:text-gray-200">
+                <td className="py-4 px-5 font-medium text-gray-900 dark:text-gray-200">
                   {problem[0]}
                 </td>
-                <td className="py-3 px-2 text-gray-900 dark:text-gray-200">
+                <td className="py-4 px-5 text-gray-900 dark:text-gray-200">
                   <a
                     href={`https://codeforces.com/problemset/problem/${problem[2]}/${problem[3]}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-purple-800 dark:hover:text-purple-300 focus:ring-2 dark:focus-within:ring-offset-gray-700 focus:outline-none rounded px-1 focus-visible:ring-purple-500 focus:ring-offset-2"
+                    className="hover:ring-2 hover:ring-purple-500 dark:hover:ring-offset-transparent focus:ring-2 focus:outline-none rounded px-1 focus:ring-purple-500"
                   >
                     {problem[1]}
                   </a>
                 </td>
-                <td className="px-2 py-3">
+                <td className="py-4 px-5">
                   {problem[4] ? (
-                    <span className="text-green-800 bg-green-200 py-1 px-3 font-medium rounded-full">
+                    <span className="text-green-800 bg-green-200 py-1 px-3 font-medium text-sm rounded-full">
                       Solved
                     </span>
                   ) : (
-                    <span className="text-red-800 bg-red-200 py-1 px-3 font-medium rounded-full">
-                      Unolved
+                    <span className="text-red-800 bg-red-200 py-1 px-3 font-medium text-sm  rounded-full">
+                      Unsolved
                     </span>
                   )}
                 </td>
@@ -56,8 +55,9 @@ function Table({ problemSet }) {
 
 const LaddersPage = () => {
   const router = useRouter();
-  const [handle] = useLocalStorage("handle");
-  const [laddersName] = useLocalStorage("laddersName");
+  const [handle] = useLocalStorage('handle');
+  const [laddersName] = useLocalStorage('laddersName');
+  const [user] = useLocalStorage('user');
   const { user: submissions, isLoading } = useUser(handle);
   const { laddersId } = router.query;
 
@@ -76,7 +76,7 @@ const LaddersPage = () => {
         if (
           submittedProblem.problem.contestId === parseInt(problem[2]) &&
           submittedProblem.problem.index === problem[3] &&
-          submittedProblem.verdict === "OK"
+          submittedProblem.verdict === 'OK'
         ) {
           flag = true;
           localProblemSet.push([...problem, true]);
@@ -93,18 +93,17 @@ const LaddersPage = () => {
   return (
     <Container>
       <section>
-        <div className="py-8 mx-auto">
-          <Heading size="sm">{laddersName}</Heading>
-          <span className="block text-center text-sm font-medium text-gray-700 dark:text-gray-200">
-            {handle}
-          </span>
-          <span className="block mt-2 text-center font-medium text-gray-700 dark:text-gray-200">
-            {solved} out of 100
-          </span>
-          <div className="mt-6 h-2 bg-gray-200 dark:bg-gray-600 container mx-auto sm:w-8/12 lg:w-6/12 rounded-none sm:rounded-full">
+        <div className="bg-white p-6 mx-auto max-w-2xl mb-4 rounded-none sm:rounded-md shadow-sm">
+          <div className="flex justify-between">
+          <h2 className="font-semibold text-xl text-gray-700">{laddersName} ({solved})</h2>
+            <span className="block font-medium text-gray-600 dark:text-gray-200">
+              {handle}
+            </span>
+          </div>
+          <div className="mt-4 h-1 bg-gray-200 dark:bg-gray-600 container rounded-none sm:rounded-full">
             <div
               style={{ width: `${solved}%` }}
-              className="h-2 bg-green-500 rounded-none sm:rounded-full"
+              className="h-1 bg-purple-500 rounded-none sm:rounded-full"
             ></div>
           </div>
         </div>
